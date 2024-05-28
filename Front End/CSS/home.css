@@ -1,0 +1,119 @@
+#opening-container, #explore-container{
+    display: flex;
+    background-color: black;
+    color: #F1F1F1;
+    padding: 1vw;
+    align-items: center;
+}
+
+#opening-container{
+    padding: 1rem;
+}
+
+#opening-text{
+    font-size: 1.5rem;
+    margin: 0 1vw;
+}
+
+#photo-profile > img{
+    height: 20vw;
+}
+
+.part-container{
+    padding: 2vw;
+    margin-bottom: 2vw;
+}
+
+.title{
+    font-weight: bolder;
+    font-size: 5vw;
+    text-align: center;
+}
+
+.part-type-container, #original-container{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.part-type{
+    padding: 1vw;
+    width: 30vw;
+}
+
+#opening-image, .part-image, .logo-brand, #explore-image{
+    text-align: center;
+}
+
+.part-image img{
+    cursor: pointer;
+    height: 15vw;
+}
+
+.text{
+    font-size: 2vw;
+    font-weight: bold;
+    text-align: center;
+}
+
+.photo-image img{
+    width: 50vw;
+    object-fit: contain;
+}
+
+#explore-text-container{
+    font-size: 2.5vw;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#text-check-product{
+    font-size: 2vw;
+    margin-bottom: 1vw;
+}
+
+#button-check{
+    text-align: center;
+    padding: 1vw;
+    font-size: 2vw;
+    width: 50%;
+    border: 0.3vw solid white;
+}
+
+#button-check:hover{
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+}
+
+@media (max-width: 800px){
+    .title{
+        font-size: 2rem;
+    }
+
+    .part-image img{
+        height: 20vw;
+    }
+}
+
+@media (max-width: 480px){
+    .part-type{
+        width: 100%;
+        margin: 2.5vw 0;
+        padding: 0;
+    }
+
+    #opening-text{
+        font-size: 0.8rem;
+    }
+
+    .title{
+        font-size: 1rem;
+    }
+    
+    #body-container{
+        min-height: 0;   
+    }
+}

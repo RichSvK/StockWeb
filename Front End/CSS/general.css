@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(31, 41, 55);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url('../Assets/background.jpg');
+}
+
+#body-container{
+    overflow-x: hidden;
+    min-height: 95vh;
+}
+
+#page-content{
+    display: flex;
+    flex-direction: column;
+}

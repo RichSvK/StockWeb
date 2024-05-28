@@ -1,0 +1,86 @@
+#body-container{
+    min-height: 98vh;
+    padding: 2vw;
+}
+
+#controls-container{
+    margin-bottom: 1vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#filter-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#search-button, .filter{
+    padding: 0.2rem;
+    margin: 0 0.5rem 0.5rem 0;
+    border-radius: 0.3rem;
+}
+
+#search-button{
+    width: 20%;
+    cursor: pointer;
+    font-size: 2vw;
+}
+
+.filter{
+    width: 45%;
+    font-size: 1.8vw;
+    margin-right: 1vw;
+}
+
+#search-button:hover{
+    background-color: black;
+    color: white;
+}
+
+#wrapper {
+    width: 100%;
+    min-height: 30vw;
+    margin: 2vw 1vw;
+}
+
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+    border: 0.1rem solid;
+    border-radius: 0.2rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: auto;
+    font-size: 1.8vw;
+}
+
+th, td {
+    border: 0.1rem solid rgb(75, 85, 99);
+    color: #fff;
+    padding: 1vw;
+    white-space: nowrap;
+}
+
+th {
+    background-color: rgb(0, 0, 0);
+    min-width: 15vw;
+    text-align: center;
+}
+
+tr {
+    background-color:rgb(31, 41, 55)
+}
+
+.stock-code{
+    position: -webkit-sticky; /* Untuk Safari */
+    position: sticky;
+    background-color: rgb(0, 0, 0);
+    left: 0;
+    z-index: 1;
+}

@@ -1,0 +1,86 @@
+#footer-container{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    display: block;
+    color: #F1F1F1;
+    align-items: center;
+}
+
+#footers{
+    display: flex;
+    margin: 0vw 1vw 0.4vw 1vw;
+    border-bottom: 0.2vw solid blanchedalmond;
+    padding: 0.8vw 0;
+    justify-content: center;
+    height: 14.5vw;
+}
+
+.footer-part{
+    width: 25%;
+}
+
+#footer{
+    width: 8%;
+    padding-right: 2vw;
+}
+
+.company-link{
+    align-items: center;
+}
+
+.footer-part-title{
+    font-size: 2vw;
+    width: 80%;
+    border-bottom: 0.2vw solid blanchedalmond;
+    font-weight: bold;
+    padding-bottom: 0.5vw;
+    margin-bottom: 0.6vw;
+}
+
+.footer-link{
+    height: 9.5vw;
+}
+
+.footer-link ul{
+    align-items: center;
+    height: 100%;
+}
+
+.footer-link ul li{
+    list-style: none;
+    height: 2vw;
+    align-items: center;
+    font-size: 1.5vw;
+}
+
+.footer-link ul li a{
+    text-decoration: none;
+    color: blanchedalmond;
+}
+
+.footer-link ul li a:hover{
+    color: white;
+    font-weight: bold;
+}
+
+#container-icon{
+    display: flex;
+}
+
+#container-icon a{
+    display: flex;
+    margin-right: 3%;
+}
+
+#container-icon img{
+    width: 4vw;
+}
+
+#copyright{
+    text-align: center;
+    font-size: 1.6vw;
+    font-weight: bold;
+    color: blanchedalmond;
+}

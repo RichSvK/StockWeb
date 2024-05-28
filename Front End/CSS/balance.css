@@ -1,0 +1,131 @@
+.header {
+    text-align: center;
+    margin-bottom: 2vw;
+}
+
+#body-container{
+    padding: 2vw ;
+}
+
+.input-section {
+    margin-bottom: 1vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#first-input{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+#stockCodeInput, #fileInput{
+    width: 25%;
+    padding: 0.4vw;
+    font-size: 1.5vw;
+    margin-right: 0.2rem;
+}
+
+#upload-input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.button-group {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+}
+
+.button-group > button, #uploadButton {
+    padding: 1vw;
+    margin: 0 0.2rem 0 0;
+    border-radius: 0.4rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5vw;
+    display: flex;
+    white-space: nowrap;
+    border: 0.08rem solid black;
+}
+
+.button-group > button:hover, #uploadButton:hover {
+    color: white;
+    background-color: black;
+}
+
+#wrapper {
+    width: 100%;
+    min-height: 30vw;
+    margin: 2vw 0;
+}
+
+#info-container{
+    margin-bottom: 0.5rem;
+}
+
+#stock-info{
+    text-align: center;
+}
+
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+    border: 0.1rem solid;
+    border-radius: 0.2rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: auto;
+    font-size: 1.8vw;
+}
+
+th, td {
+    border: 0.08rem solid rgb(75, 85, 99);
+    color: #fff;
+    padding: 1vw;
+    white-space: nowrap;
+}
+
+th {
+    background-color: rgb(0, 0, 0);
+    min-width: 15vw;
+    text-align: center;
+}
+
+tr {
+    background-color:rgb(31, 41, 55)
+}
+
+h2 {
+    font-size: 2.8vw;
+}
+
+#chart-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.chart-container {
+    width: 80%;
+    overflow-x: auto;
+}
+
+#chart-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#myChart {
+    min-width: 300px;
+    width: 90%;
+    padding: 0 2%;
+}
