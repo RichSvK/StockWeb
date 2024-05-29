@@ -90,7 +90,7 @@ Software used in developing this program:
    - Click `Choose File` button then choose `2024_01_January.txt` from `KSEI data` folder then click `Upload File` button.
      ![image](https://github.com/RichSvK/StockWeb/assets/87809864/485b12aa-d831-4bb6-927e-b1cb6a644ca3)
 
-   - Upload `2022_11_November.txt` and `2023_12_December.txt` too.
+   - Upload `2023_11_November.txt` and `2023_12_December.txt` too.
    - Check ANTM stock and see the `Change 1 Month` row
      * If there are no changes, the background will be yellow.
      * If the shares are increasing compared to last month, the background will be green.
