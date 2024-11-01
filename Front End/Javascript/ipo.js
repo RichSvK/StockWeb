@@ -16,9 +16,11 @@ async function FetchData(url) {
 	}
 }
 
+var IPO_data;
 function displayData(data) {
 	const tbody = document.querySelector("#data-table tbody");
 	tbody.innerHTML = "";
+	IPO_data = data;
 
 	data.forEach(function (item) {
 		var row = document.createElement("tr");
@@ -48,44 +50,190 @@ async function DisplayAll() {
 	displayData(responseData)
 }
 
-async function DisplayByValue(value, underwriter) {
-	const url = `http://localhost:8080/ipo/value?value=${value}&underwriter=${underwriter}`;
-	const responseData = await FetchData(url)
-	if(responseData == null) return
-	displayData(responseData)
-}
+// let selectUnderwriter = document.getElementById("filterUnderwriter")
+// function AddBroker(brokers){
+// 	brokers.forEach(function (broker) {
+// 		let option = document.createElement("option")
+// 		option.value = broker.broker_code
+// 		option.text = broker.name
+// 		selectUnderwriter.appendChild(option)
+// 	})
+// }
 
-async function DisplayByUnderwriter(underwriter) {
-	const url = `http://localhost:8080/ipo/underwriter/${underwriter}`
-	const responseData = await FetchData(url)
-	if(responseData == null) return
-	displayData(responseData)
-}
-
-
-function ApplyFilters() {
-	let Underwriter = document.getElementById("filterUnderwriter").value;
-	let Value = document.getElementById("filterValue").value;
-	if (Underwriter == "ALL" && Value == "ALL") DisplayAll()
-	else if (Value == "ALL") DisplayByUnderwriter(Underwriter)
-	else DisplayByValue(Value, Underwriter)
-}
-
-let selectUnderwriter = document.getElementById("filterUnderwriter")
-function AddBroker(brokers){
-	brokers.forEach(function (broker) {
-		let option = document.createElement("option")
-		option.value = broker.broker_code
-		option.text = broker.name
-		selectUnderwriter.appendChild(option)
-	})
-}
-
-async function GetUnderwriter(){
-	const brokers = await FetchData(`http://localhost:8080/brokers`)
-	if(brokers == null) return
-	AddBroker(brokers)
-}
+// async function GetUnderwriter(){
+// 	const brokers = await FetchData(`http://localhost:8080/brokers`)
+// 	if(brokers == null) return
+// 	AddBroker(brokers)
+// }
 
 document.addEventListener("DOMContentLoaded", DisplayAll)
-document.addEventListener("DOMContentLoaded", GetUnderwriter)
+// document.addEventListener("DOMContentLoaded", GetUnderwriter)
+
+const headers = document.querySelectorAll('th');
+
+// Add click event listener to each <th> element
+headers.forEach(function(header) {
+    header.addEventListener('click', function() {
+		var column = this.dataset.column;
+		var order = this.dataset.order;
+
+		if(order == 'desc') {
+			this.dataset.order = "asc";
+			IPO_data = IPO_data.sort((a, b) => a[column] > b[column] ? 1 : -1);
+		} else {
+			this.dataset.order = "desc";
+			IPO_data = IPO_data.sort((a, b) => a[column] < b[column] ? 1 : -1);
+		}
+		displayData(IPO_data);
+    });
+});
+
+// User can't right click to avoid showing context menu
+document.addEventListener('contextmenu', function(e) {
+	e.preventDefault(); 
+});
+
+// Prevent from clicking F12, Ctrl + C, Ctrl + X, Ctrl + U, Ctrl + A, and Ctrl + Shift + I
+document.addEventListener('keydown', function(e) {
+	if ((e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'u' || e.key === 'a')) || ((e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')))) {
+		e.preventDefault();
+	}
+});
+
+var categories = [
+	['Select Category', ""],
+	['Stock Code', "s.stock_code"],
+	['Price', "price"],
+	['IPO Shares', "ipo_shares"],
+	['Listed Shares', "listed_shares"],
+	['Equity', "equity"],
+	['Nominal', "nominal"],
+	['MCB', "mcb"],
+	['Is Affiliated', "is_affiliated"],
+	['Is Acceleration', "is_acceleration"],
+	['Is New', "is_new"],
+	['Lock Up', "lock_up"],
+	['Subscribed Stock', "subscribed_stock"],
+	['Underwriter', "uw_code"],
+	['Amount', "(price * ipo_shares)"],
+	['Warrant', "warrant"]
+];
+
+// Add rule dynamically
+document.getElementById('add-rule-btn').addEventListener('click', function () {
+	var ruleContainer = document.getElementById('rule-container');
+
+	var newRuleRow = document.createElement('div');
+	newRuleRow.classList.add('row', 'mb-3');
+
+	// Create the category select element
+	var categoryCol = document.createElement('div');
+	categoryCol.classList.add('col-md-5');
+
+	var categorySelect = document.createElement('select');
+	categorySelect.classList.add('form-select');
+	categories.forEach(function (category) {
+		var option = document.createElement('option');
+		option.textContent = category[0];
+		option.value = category[1];
+		categorySelect.appendChild(option);
+	});
+	categoryCol.appendChild(categorySelect);
+
+	// Create the operator select element
+	var operatorCol = document.createElement('div');
+	operatorCol.classList.add('col-md-1');
+	var operatorSelect = document.createElement('select');
+	operatorSelect.classList.add('form-select');
+	['>', '<', '>=', '<=', '='].forEach(function (op) {
+		var option = document.createElement('option');
+		option.value = op;
+		option.textContent = op;
+		operatorSelect.appendChild(option);
+	});
+	operatorCol.appendChild(operatorSelect);
+
+	// Create the input element
+	var valueCol = document.createElement('div');
+	valueCol.classList.add('col-md-4');
+	var input = document.createElement('input');
+	input.classList.add('form-control');
+	input.placeholder = 'Enter value';
+	valueCol.appendChild(input);
+
+	// Create the remove button
+	var removeCol = document.createElement('div');
+	removeCol.classList.add('col-md-2');
+	var removeBtn = document.createElement('button');
+	removeBtn.classList.add('btn', 'btn-danger', 'remove-rule');
+	removeBtn.textContent = 'X';
+	removeBtn.addEventListener('click', function () {
+		ruleContainer.removeChild(newRuleRow);
+	});
+	removeCol.appendChild(removeBtn);
+
+	// Append all columns to the new row
+	newRuleRow.appendChild(categoryCol);
+	newRuleRow.appendChild(operatorCol);
+	newRuleRow.appendChild(valueCol);
+	newRuleRow.appendChild(removeCol);
+
+	// Append the new row to the rule container
+	ruleContainer.appendChild(newRuleRow);
+});
+
+// Remove rule dynamically
+document.querySelectorAll('.remove-rule').forEach(function (button) {
+	button.addEventListener('click', function () {
+		this.closest('.row').remove();
+	});
+});
+
+async function displayByCondition(){
+	var ruleContainer = document.getElementById('rule-container');
+	var rules = [];
+
+	// Loop through each row in the rule container and get the values
+	var rows = ruleContainer.querySelectorAll('.row');
+	rows.forEach(function (row) {
+		var category = row.querySelector('.col-md-5 select').value;
+		var operator = row.querySelector('.col-md-1 select').value;
+		var value = row.querySelector('.col-md-4 input').value;
+		var type = "number";
+
+		// Push each rule to the rules array
+		if (category != "Select Categrory" && operator && value) {
+			if (category == "s.stock_code" || category == "uw_code") type = "string";
+			
+			rules.push({
+				filter_name: category,
+				symbol: operator,
+				filter_value: value,
+				filter_type: type
+			});
+		}
+	});
+
+	// Create the JSON object to be sent
+	var jsonData = JSON.stringify(rules);
+	console.log(jsonData);
+	try {
+		url = "http://localhost:8080/ipo/condition"
+		const response = await fetch(url, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: jsonData,
+		})
+		let responses = await response.json()
+		if(response.ok){
+			displayData(responses.data)
+			return
+		}
+        throw new Error(responses.message)
+	} catch (error) {
+		alert(error)
+		return null
+	}
+}

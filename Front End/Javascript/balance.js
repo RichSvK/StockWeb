@@ -271,6 +271,7 @@ function displayDataBalance(data) {
 		tbody.appendChild(row);
 	});
 
+	if (data.length == 1) return;
 	const table = document.getElementById('data-table');
 	const lastRow = table.querySelector('tbody tr:last-child');
 	const secondLastRow = lastRow.previousElementSibling;
