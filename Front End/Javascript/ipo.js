@@ -50,24 +50,8 @@ async function DisplayAll() {
 	displayData(responseData)
 }
 
-// let selectUnderwriter = document.getElementById("filterUnderwriter")
-// function AddBroker(brokers){
-// 	brokers.forEach(function (broker) {
-// 		let option = document.createElement("option")
-// 		option.value = broker.broker_code
-// 		option.text = broker.name
-// 		selectUnderwriter.appendChild(option)
-// 	})
-// }
-
-// async function GetUnderwriter(){
-// 	const brokers = await FetchData(`http://localhost:8080/brokers`)
-// 	if(brokers == null) return
-// 	AddBroker(brokers)
-// }
 
 document.addEventListener("DOMContentLoaded", DisplayAll)
-// document.addEventListener("DOMContentLoaded", GetUnderwriter)
 
 const headers = document.querySelectorAll('th');
 
