@@ -28,7 +28,9 @@ function displayData(data) {
 			<td class="stock-code">${item["stock_code"]}</td>
 			<td>${item["price"].toLocaleString('id-ID')}</td>
 			<td>${item["ipo_shares"].toLocaleString('id-ID')}</td>
+			<td>${item["amount"].toLocaleString('id-ID')}</td>
 			<td>${item["listed_shares"].toLocaleString('id-ID')}</td>
+			<td>${(item["listed_shares"] * item["price"]).toLocaleString('id-ID')}</td>
 			<td>${item["equity"].toLocaleString('id-ID')}</td>
 			<td>${item["warrant"]}</td>
 			<td>${item["nominal"].toLocaleString('id-ID')}</td>
@@ -39,7 +41,7 @@ function displayData(data) {
 			<td>${item["lock_up"]}</td>
 			<td>${item["subscribed_stock"].toLocaleString('id-ID')}</td>
 			<td>${item["all_underwriter"]}</td>
-			<td>${item["amount"].toLocaleString('id-ID')}</td>`
+			`
 		tbody.appendChild(row)
 	})
 }
