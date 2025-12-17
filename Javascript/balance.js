@@ -212,7 +212,7 @@ async function exportData() {
 	let valid = checkCode(stockCode);
 	if (!valid) return;
 
-	let url = `http://localhost:8080/balance/export?code=${stockCode}`;
+	let url = `http://localhost:8080/balance/export/${stockCode}`;
 	try {
 		const response = await fetch(url, {
 			method: "GET",

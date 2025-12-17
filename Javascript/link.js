@@ -63,28 +63,23 @@ function addCards(data){
     })
 }
 
-async function showCards(category) {
-    let url = `http://localhost:8080/links/${category}`
-    const data = await FetchData(url)
-    if (data == null) return
-    addCards(data)
-}
-
-async function showAll(){
-    let url = `http://localhost:8080/links`
-    const data = await FetchData(url)
-    if (data == null) return
-    addCards(data)
-}
-
 // Initial Index
-var index = 0
-function showCard(){
+var index = -1
+
+async function showCard(){
     let category = document.getElementById("category").value
     if(category == index) return
+
     index = category
-    if(category == 0) showAll()
-    else showCards(index)
+    let url = `http://localhost:8080/links`
+
+    if(category != 0) {
+        url = `http://localhost:8080/links?category=${category}`
+    }
+
+    const data = await FetchData(url)
+    if (data == null) return
+    addCards(data)
 }
 
-showAll()
+showCard()

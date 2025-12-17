@@ -52,7 +52,6 @@ async function DisplayAll() {
 	displayData(responseData)
 }
 
-
 document.addEventListener("DOMContentLoaded", DisplayAll)
 
 const headers = document.querySelectorAll('th');
@@ -212,6 +211,7 @@ async function displayByCondition(){
 			},
 			body: jsonData,
 		})
+
 		let responses = await response.json()
 		if(response.ok){
 			displayData(responses.data)

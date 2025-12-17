@@ -1,4 +1,4 @@
-#opening-container, #explore-container{
+#explore-container{
     display: flex;
     background-color: black;
     color: #F1F1F1;
@@ -6,17 +6,9 @@
     align-items: center;
 }
 
-#opening-container{
-    padding: 1rem;
-}
-
 #opening-text{
     font-size: 1.5rem;
     margin: 0 1vw;
-}
-
-#photo-profile > img{
-    height: 20vw;
 }
 
 .part-container{
