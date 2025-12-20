@@ -3,19 +3,26 @@
 ### Stock Market: Indonesia
 
 ### Program Description
-StockWeb allows users to insert and export a CSV file containing the information of stock ownership data for the last six months, show stacked bar chart and tables of stock ownership, displays IPO stock sample data, and list of of website related capital market websites.
+StockWeb is an web based application for analyzing stock ownership and IPO stocks with several features including:
+- Import and export CSV files containing stock ownership data for the last six months
+- Display stacked bar charts and tables of stock ownership
+- View and filter IPO stock based on criteria
+- Access a list of capital market-related websites
+
+## Related Repositories
+- **Frontend**: https://github.com/RichSvK/StockWeb
+- **Stock Services**: https://github.com/RichSvK/Stock_Backend
+- **IPO Console Application**: https://github.com/RichSvK/GoIPO
 
 ### System Requirements
-Software used in developing this program:
-- Go 1.22
-- GORM as Object Relational Mapping
-- Gin Web Framework
 - MySQL 8.3.0
 - MySQL Workbench
-- Text Editor: Visual Studio Code
 
 ### Program Preparation
-- Install all the required software to run the program
+Install all the required software to run the program
+- Insert all data to database from the following step in **Program Setup**
+- Insert IPO data using IPO console from `https://github.com/RichSvK/GoIPO`
+- Clone `https://github.com/RichSvK/Stock_Backend` and run backend service
 
 ### Data Source
 - Stock Ownership Data
@@ -25,13 +32,13 @@ Software used in developing this program:
   Source: E-IPO Stock Prospectus<br>
   URL: https://e-ipo.co.id/en
 
-### Database Setup
+### Program Setup
 1. Open MySQL Workbench
 2. Open `SQL` folder
 3. Create and use database using the commands in `Database.sql`.<br>
    ![image](https://github.com/RichSvK/StockWeb/assets/87809864/ac478249-9e9f-428c-ba0b-c3adb8e090ec)
 
-4. Open `Back End` folder
+4. Clone `Back End` repositories `from https://github.com/RichSvK/Stock_Backend`
 5. Open terminal or cmd to run the back end by using command `go run .` and click `Allow access`.<br>
    ![image](https://github.com/RichSvK/StockWeb/assets/87809864/98f1f44a-cdba-4d12-81af-1701deedf694)
 
@@ -59,9 +66,6 @@ Software used in developing this program:
 
 9. Run the front end using `Live Server` extensions in Visual Studio Code. <br>
    ![image](https://github.com/RichSvK/StockWeb/assets/87809864/cd6f4ca0-d782-4300-ae08-e572fe1fb8a7)
-
-10. Check the `.env` file in `Back End` folder and set the `DB_SOURCE` based on user setting with format `user:password@tcp(host:port)/databaseName?parseTime=true`. <br>
-    ![image](https://github.com/RichSvK/StockWeb/assets/87809864/ccf37763-b0f0-4fcb-8046-507530afcbc3)
 
 ### Pages
 1. Home Page<br>
